@@ -1,0 +1,35 @@
+.noticia{
+    width: 80%;
+    background: #f1f1f1;
+    border-top: 1px solid #bbb;
+    border-left: 1px solid #bbb;
+    box-shadow: 5px 5px #bbb;
+    position: relative;
+    left: 10%;
+    padding: 1rem;
+}
+
+.ntc-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 2.5rem;
+}
+.ntc-header h3{
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--primario);
+}
+
+.ntc-body{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+    
+}
+
+.ntc-body img{
+    width: 80%;
+    height: 40vh;
+}

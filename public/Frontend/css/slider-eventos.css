@@ -1,0 +1,132 @@
+
+.slider-eventos{
+    width: 75%;
+    padding: 1rem;
+    background:  var(--primario);
+    border-radius: 15px;
+    position: absolute;
+    margin-top: -5%;
+    margin-left: 12.5%;
+    z-index: 1;
+}
+
+
+
+@media screen and (max-width:1844px) {
+    .slider-eventos{
+        width: 90%;
+        margin-top: 1rem!important;
+        margin-bottom: 1rem!important;
+        margin-left: 5%!important;
+        position: relative!important;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .slider-eventos{
+        width: 100%;
+        position: relative!important;
+        margin-left: 0!important;
+    }
+}
+
+
+
+.slider-eventos .header{
+    display: flex;
+    justify-content: flex-start;
+    padding: 1rem;    
+    border-bottom: 1px solid #ddd;
+}
+
+.header h3{
+    color: var(--txt-bco);
+    font-weight: lighter;
+}
+
+.header span{
+    font-weight: 500;
+}
+
+
+.container{
+    width: 100%;
+    overflow:auto;
+    padding: 1rem;
+
+}
+
+.container .item{
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    background: var(--background);
+    border-radius: 5px;  
+    padding:1rem;
+    margin-right: 1rem;
+    height: 450px;
+    border: 1px solid #bbb;
+}
+.container .item:hover{
+    border: 0;
+    border-top: 1px solid #bbb;
+    border-left: 1px solid #bbb;
+    box-shadow: 2px 3px #bbb;
+}
+
+.container  .item .img{
+    width: 100%;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.item .img img{
+    height: 100%;
+    width: 100%;
+}
+
+.item h3{
+    height: 48px;
+    font-size: 24px;
+    overflow: hidden;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    color: var(--primario);
+    display: flex;
+    align-items: center;
+}
+
+.item p{
+    height: 224px;
+    font-size: 16px;
+    overflow: hidden;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    color: var(--secundario);
+}
+
+.item a{
+    height: 30px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primario);
+    overflow: hidden;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    display: flex;
+    align-items: flex-end;
+}
+
+
+
+.slider-eventos .footer{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 10px;
+    font-weight: 500;
+    width: 100%;
+    color: var(--txt-bco);
+}

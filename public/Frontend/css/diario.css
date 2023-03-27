@@ -1,0 +1,139 @@
+.diario{
+    width: 100%;
+    display: flex;
+    flex-direction: column;  
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd; 
+    box-shadow: 5px 5px #ddd;
+    margin-bottom: 1.5rem;
+}
+
+.diario .dia-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.diario .dia-header h3{
+    color: var(--secundario);
+}
+
+.diario .dia-header a{
+    text-decoration: none;
+    color: var(--secundario);
+    font-weight: 700;    
+}
+
+.diario .dia-header a:hover{
+    color: var(--primario);
+}
+
+.diario .dia-container{
+    width: 100%;
+    padding: 1rem;
+    height: 255px;
+   /* overflow: auto;
+    display: flex;*/
+}
+
+.swiper.deportivo{
+    margin-top: 0 !important;
+    height: auto;
+}
+
+.dia-item.swiper-slide{
+    width: 350px !important;
+    height: 215px;
+    border-radius: 15px;
+    box-shadow:  5px 5px #ddd;
+    border: 1px solid #bbb;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+    margin-right: 1rem;
+}
+
+.dia-item .logos{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;    
+}
+
+.logos .equipos{
+    display: flex;
+    flex-direction: column; 
+    border-right: 1px solid #bbb;   
+}
+.equipos .logos-item{
+    width: 185px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 0.55rem;
+    padding-right: 1rem;
+}
+
+.logos-item img{
+    width: 45px !important;
+    height: 45px !important;
+}
+
+.logos span{
+    font-weight: 700;
+}
+
+.programacion{
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 1rem;
+}
+.programacion span{
+    width: 100%;
+    font-size: 14px;
+    color: #666;
+    font-weight: 700;
+    padding: 1rem;
+    text-align: center;
+}
+
+.programacion img{
+    width: 100%;
+    height: 65px;
+}
+
+.dia-item .info{
+    width: 100%;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    font-weight: 700;
+    align-items: center;
+    font-size: 12px;
+}
+
+.dia-item .categorias{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+}
+
+
+.swiper-button-prev.deportivo,
+.swiper-button-next.deportivo{
+    background: rgba(113, 102, 88, 0.65);
+}
+
+

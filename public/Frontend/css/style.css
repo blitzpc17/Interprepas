@@ -1,0 +1,79 @@
+@import url('http://fonts.googleapis.com/css?family=Nunito:400,300,700');
+
+:root{
+  --primario: #2C548C;
+  --secundario: #716658;
+  --background: #F1F1F1;
+  --txt-bco: white;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;  
+}
+body{
+  min-height: 100vh;
+  background: var(--background);
+}
+
+/*tamaño contendor*/
+
+.wd-15{
+  width: 15%;
+}
+
+.wd-25{
+  width: 25%;
+}
+
+.wd-35{
+  width: 35%;
+}
+
+.wd-45{
+  width: 45%;
+}
+
+.wd-50{
+  width: 50%;
+}
+
+.wd-55{
+  width: 55%;
+}
+
+.wd-65{
+  width: 65%;
+}
+
+.wd-75{
+  width: 75%;
+}
+
+.wd-85{
+  width: 85%;
+}
+
+@media screen and (max-width:1279px) {
+  .wd-15,
+  .wd-25,
+  .wd-35,
+  .wd-45,
+  .wd-50,
+  .wd-55,
+  .wd-65,
+  .wd-75,
+  .wd-85{
+    width: 0%;
+  }
+
+  .sm-100{
+    width: 100%;
+  }
+}
+
+
+/*end tamaño contendor*/
+

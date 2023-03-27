@@ -1,0 +1,95 @@
+.medallero{
+    width: 80%;
+    display: flex;
+    flex-direction: column;  
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd; 
+    box-shadow: 5px 5px #ddd;
+    margin-bottom: 1.5rem;
+}
+
+@media screen and (max-width:1279px){
+    .medallero{
+        width: 45%;
+    }
+}
+
+@media screen and (max-width:950px) {
+    .medallero{
+        width: 100%;
+    }
+}
+
+.medallero .med-header{
+    display: flex;
+    justify-content: flex-start;
+    padding: 1rem;
+    background: var(--secundario);
+}
+
+.medallero .med-header h3{
+    color: var(--txt-bco);
+}
+
+.medallero .med-container{
+    width: 100%;
+    height: 30vh;
+    overflow: auto;
+    display: flex;  
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.med-container .marco{
+    width: 100%;
+    padding: 1rem;
+    border: 0;
+    height: 30vh;
+    overflow-y: auto;
+}
+
+.tb-medallero{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+.tb-medallero thead th{
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    padding:  0.25rem 0;
+}
+
+.tb-medallero tbody tr td{
+    border-top: 1px solid #bbb;
+    padding: 0.35rem;
+}
+
+.tb-medallero tr td:nth-child(1),
+.tb-medallero tr td:nth-child(3),
+.tb-medallero tr td:nth-child(4),
+.tb-medallero tr td:nth-child(5),
+.tb-medallero tr td:nth-child(6){
+    text-align: center;
+}
+
+.med-footer{
+    background: var(--secundario);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 30px;
+}
+
+.med-footer{
+    color: var(--txt-bco);
+    font-weight: 700;
+    font-size: 14px;
+    padding: 1rem;
+}
+
+
+
+
+
