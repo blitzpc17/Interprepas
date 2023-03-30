@@ -10,9 +10,9 @@
 
         <div class="swiper deportivo">
 
-            <div class="swiper-wrapper">
+            <div id="deportivos" class="swiper-wrapper">
 
-                @for($i=1; $i<=10; $i++)
+             
 
                 <div class="dia-item swiper-slide">
                     <div class="categorias">
@@ -41,7 +41,7 @@
                     </div> 
                 </div> 
 
-                @endfor
+           
 
             </div>
 

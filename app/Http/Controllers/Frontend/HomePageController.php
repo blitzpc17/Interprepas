@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\Preparatoria;
+
 use DB;
 
 class HomePageController extends Controller
@@ -27,16 +29,19 @@ class HomePageController extends Controller
         ->join('ramas as ram', 'cat.ramasId', 'ram.Id')
         ->join('tipos as tip', 'cat.tiposId','tip.Id')
         ->join('sedes as sed', 'ev.SedeId', 'sed.Id')
-        ->select('ev.Id', 'ev.FechaHora', 'ev.SourceData', 'cat.Id',
-                DB::raw("concat(cat.Nombre,' ',ram.Nombre) as Categoria"),
-                'sed.Nombres as Sede')
+        ->selectraw("ev.Id, ev.FechaHora, ev.SourceData, cat.Id, cat.Img as CategoriaImagen,
+                tip.Id as TipoId,
+               concat(cat.Nombre,' ',ram.Nombre) as Categoria,
+                sed.Nombres as Sede")
         ->get();
 
-        $evDeportivos = [];
+        $evDeportivos = $eventos->where('TipoId', 1);
 
-        $evCulturales = [];
+        $evCulturales = $eventos->where('TipoId', 2);
 
-        $evConocimiento = [];
+        $evConocimiento = $eventos->where('TipoId', 3);
+
+        $preparatorias = Preparatoria::all();
 
 
         $noticias = DB::table('noticias as not')
@@ -49,7 +54,8 @@ class HomePageController extends Controller
                     "evDeportivos" => $evDeportivos,
                     "evCulturales" => $evCulturales,
                     "evConocimiento" => $evConocimiento,
-                    "noticias" => $noticias
+                    "noticias" => $noticias,
+                    "prepas" => $preparatorias
                     ]);
     }
 

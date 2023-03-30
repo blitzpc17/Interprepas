@@ -225,7 +225,7 @@
   integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
   crossorigin="anonymous"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js"></script>
 
 
 <script>
@@ -258,29 +258,7 @@
 
 
 
-    /*eventos deportivos */
-
-    const swiperd = new Swiper('.swiper.deportivo', {
-      // Optional parameters
-      direction: 'horizontal',
-      loop: true,
-
-
-      // Navigation arrows
-      navigation: {
-        nextEl: '.swiper-button-next.deportivo',
-        prevEl: '.swiper-button-prev.deportivo',
-      },
-
-      autoplay: {
-        delay: 2000,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true
-      },
-      slidesPerView:"auto",
-      centeredSlides: true,
-      disableOnInteraction: true,
-    });
+   
 
      /*eventos culturales */
 
@@ -324,7 +302,8 @@
     });
 
 
-
+    let prepas;
+    moment.locale('es')
     $(document).ready(function () {
         ListarData();
     });
@@ -343,8 +322,10 @@
         dataType: "json",
         success: function (res) {
             console.log(res)
+            prepas = res.prepas;
             FillMedallero(res.medallero)
             FillBlog(res.noticias)
+            FillEventosDeportivos(res.evDeportivos)
 
         }
       });
@@ -389,6 +370,83 @@
                       </div>`;
         $('.bg-container').append(html);
       });
+    }
+
+    function FillEventosDeportivos(data){
+
+      
+      $('#deportivos').empty();
+
+      $.each(data, function (i, val) { 
+          const eventoData = JSON.parse(val.SourceData)
+          const dataVisitante = eventoData[0].EquipoVisitante;
+          const prepaVisitante = prepas.find(x=>x.Id == dataVisitante.Id)
+          const dataLocal = eventoData[0].EquipoLocal;
+          const prepaLocal = prepas.find(x=>x.Id == dataLocal.Id)
+
+
+          const html=`<div class="dia-item swiper-slide">
+                        <div class="categorias">
+                            <h3>${val.Categoria}</h3>
+                        </div>
+                        <div class="logos">
+                            <div class="equipos">
+                                <div class="logos-item">
+                                    <img src="{{asset('${prepaVisitante.Logo}')}}" alt="">                
+                                    <span>${dataLocal.Score}</span>
+                                </div>
+                                <div class="logos-item">
+                                    <img src="{{asset('${prepaLocal.Logo}')}}" alt="">
+                                    <span>${dataVisitante.Score}</span>
+                                </div>
+                            </div>
+                            <div class="programacion">
+                                <span>${moment(val.FechaHora).format('MMMM D, h:mm a')}</span>
+                                <img src="${val.CategoriaImagen}" alt="" srcset="">
+                            </div>              
+                        
+                            
+                        </div>
+                        <div class="info">
+                            <span>${val.Sede}</span>
+                        </div> 
+                    </div> `
+
+                    $('#deportivos').append(html)
+      });
+
+       /*eventos deportivos */
+
+    const swiperd = new Swiper('.swiper.deportivo', {
+      // Optional parameters
+      direction: 'horizontal',
+      loop: true,
+
+
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next.deportivo',
+        prevEl: '.swiper-button-prev.deportivo',
+      },
+
+      autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true
+      },
+      slidesPerView:"auto",
+      centeredSlides: true,
+      disableOnInteraction: true,
+    });
+
+    }
+
+    function FillEventosCulturales(data){
+
+    }
+
+    function FillEventosExamenes(data){
+
     }
    
 
