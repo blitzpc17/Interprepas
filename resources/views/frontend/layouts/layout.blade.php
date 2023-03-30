@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="{{asset('Frontend/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('Frontend/css/menu.css')}}">
+    <link rel="stylesheet" href="{{asset('Frontend/css/footer.css')}}">
     @stack('css')
 </head>
 <body>
@@ -25,7 +26,7 @@
 
 
   
-
+@include('frontend.layouts.footer')
 
 
 <script src="{{asset('Frontend/js/main.js')}}"></script>

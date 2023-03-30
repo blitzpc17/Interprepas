@@ -1,11 +1,4 @@
 .noticia{
-    width: 80%;
-    background: #f1f1f1;
-    border-top: 1px solid #bbb;
-    border-left: 1px solid #bbb;
-    box-shadow: 5px 5px #bbb;
-    position: relative;
-    left: 10%;
     padding: 1rem;
 }
 
@@ -31,5 +24,23 @@
 
 .ntc-body img{
     width: 80%;
-    height: 40vh;
+    height: calc(80% * .65)
 }
+
+.ntc-body .ntc-txt{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2.5rem;
+    margin-top: 2rem;
+    border-top: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+}
+
+.ntc-txt p{
+    color: var(--secundario);
+    font-weight: 500;
+    font-size: 20px;
+}
+
