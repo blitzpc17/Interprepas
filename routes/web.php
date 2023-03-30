@@ -25,12 +25,15 @@ use App\Http\Controllers\Admin\NoticiasController as AdminNoticiasController;
 |
 */
 Route::get('/', [HomePageController::class, 'index'])->name('f.home');
+Route::get('op/home/listar', [HomePageController::class, 'listarDataHome'])->name('f.listar');
 
 //Route::get('noticia', [NoticiasController::class, 'noticia'])->name('f.noticia');
 
 
 Route::prefix('panzers')->group(function () {
     Route::get('home', [AdminPAgeController::class, 'index'])->name('p.index');
+    
+    
 
     /*ramas*/
     Route::get('ramas', [RamasController::class, 'index'])->name('ram.index');

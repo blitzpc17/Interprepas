@@ -220,6 +220,10 @@
 @push('js')
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.6.4.js"
+  integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+  crossorigin="anonymous"></script>
 
 <script>
 
@@ -315,6 +319,53 @@
             centeredSlides: true,
 
     });
+
+
+
+    $(document).ready(function () {
+        ListarData();
+    });
+
+
+
+
+    /*medallero */
+
+    function ListarData(){
+
+      console.log('vvolando...')
+      $.ajax({
+        method: "GET",
+        url: "{{route('f.listar')}}",
+        dataType: "json",
+        success: function (res) {
+            console.log(res)
+            FillMedallero(res.medallero)
+
+        }
+      });
+    }
+
+
+    function FillMedallero(data){
+      
+      $('.tb-medallero tbody').empty();
+      $.each(data, function (i, val) { 
+        console.log(val)
+
+          const medallas = val.Medallas.split("-")
+          const html = ` <tr>
+                          <td>${val.Posicion}</td>
+                          <td>${val.Region}</td>
+                          <td>${medallas[0]}</td>
+                          <td>${medallas[1]}</td>
+                          <td>${medallas[2]}</td>
+                          <td>${medallas[3]}</td>
+                        </tr>` ;
+
+        $('.tb-medallero tbody').append(html);
+      });
+    }
    
 
 
