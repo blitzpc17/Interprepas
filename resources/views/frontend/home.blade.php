@@ -379,11 +379,11 @@
                         <div class="logos">
                             <div class="equipos">
                                 <div class="logos-item">
-                                    <img src="{{asset('${prepaVisitante.Logo}')}}" alt="">                
+                                    <img src="{{asset('${prepaLocal.Logo}')}}" alt="">                
                                     <span>${dataLocal.Score}</span>
                                 </div>
                                 <div class="logos-item">
-                                    <img src="{{asset('${prepaLocal.Logo}')}}" alt="">
+                                    <img src="{{asset('${prepaVisitante.Logo}')}}" alt="">
                                     <span>${dataVisitante.Score}</span>
                                 </div>
                             </div>

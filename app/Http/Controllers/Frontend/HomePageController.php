@@ -29,6 +29,7 @@ class HomePageController extends Controller
         ->join('ramas as ram', 'cat.ramasId', 'ram.Id')
         ->join('tipos as tip', 'cat.tiposId','tip.Id')
         ->join('sedes as sed', 'ev.SedeId', 'sed.Id')
+        ->whereraw('convert(ev.FechaHora, DATE) = curdate()')
         ->selectraw("ev.Id, ev.FechaHora, ev.SourceData, cat.Id, cat.Img as CategoriaImagen,
                 tip.Id as TipoId,
                concat(cat.Nombre,' ',ram.Nombre) as Categoria,
@@ -46,6 +47,7 @@ class HomePageController extends Controller
 
         $noticias = DB::table('noticias as not')
             ->select('not.Id', 'not.Titulo', 'not.Fecha', 'not.Contenido', 'not.Img')
+            ->orderbydesc('not.Id')
             ->get();
 
 
