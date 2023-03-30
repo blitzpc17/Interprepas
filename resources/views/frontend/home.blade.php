@@ -225,6 +225,9 @@
   integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
   crossorigin="anonymous"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+
+
 <script>
 
     const progressCircle = document.querySelector(".autoplay-progress svg");
@@ -341,6 +344,7 @@
         success: function (res) {
             console.log(res)
             FillMedallero(res.medallero)
+            FillBlog(res.noticias)
 
         }
       });
@@ -364,6 +368,26 @@
                         </tr>` ;
 
         $('.tb-medallero tbody').append(html);
+      });
+    }
+
+    function FillBlog(data){
+      $('.bg-container').empty();
+      $.each(data, function (i, val) { 
+         const html = `<div class="bg-item">
+                          <div class="bg-img">
+                              <img src="{{asset('${val.Img}')}}" alt="">
+                          </div>
+                          <div class="bg-contenido">
+                            
+                              <h3>${val.Titulo}</h3>                    
+                              <span>${moment(val.Fecha).format('DD-MM-YYYY')}</span>
+                              <p>${val.Contenido}</p>
+                              <a href="#">Ver más</a>  
+                              
+                          </div>
+                      </div>`;
+        $('.bg-container').append(html);
       });
     }
    
