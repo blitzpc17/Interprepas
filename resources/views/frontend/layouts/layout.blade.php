@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="{{asset('Frontend/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('Frontend/css/menu.css')}}">
     <link rel="stylesheet" href="{{asset('Frontend/css/footer.css')}}">
+
+    <link rel="icon" type="image/jpg" href="{{asset('favicon.ico')}}"/>
     @stack('css')
 </head>
 <body>

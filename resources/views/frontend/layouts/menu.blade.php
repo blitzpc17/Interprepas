@@ -2,10 +2,10 @@
   <nav>
     <div class="navbar">
       <i class='bx bx-menu'></i>
-      <div class="logo"><a href="#">PREFECO</a></div>
+      <div class="logo"><a href="#">INTERPREPAS{{date('Y')}}</a></div>
       <div class="nav-links">
         <div class="sidebar-logo">
-          <span class="logo-name">PREFECO</span>
+          <span class="logo-name">INTERPREPAS{{date('Y')}}</span>
           <i class='bx bx-x' ></i>
         </div>
         <ul class="links">

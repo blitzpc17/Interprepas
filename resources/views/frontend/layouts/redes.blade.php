@@ -7,7 +7,7 @@
 
     <div class="red-container">
 
-        <img class="mascota" src="https://banner2.cleanpng.com/20180715/cbc/kisspng-philadelphia-eagles-bald-eagle-college-logo-5b4bd48911f639.2278518415316962650736.jpg" alt="" srcset="">
+        <img class="mascota" src="{{asset('Frontend/img/45anvHalconesS.png')}}" alt="" srcset="">
          
 
         <div class="logos-redes">

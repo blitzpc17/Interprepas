@@ -152,7 +152,7 @@
     <!-- Swiper -->
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="https://wallpaperaccess.com/full/1398610.jpg" alt="" srcset=""></div>
+            <!-- <div class="swiper-slide"><img src="https://wallpaperaccess.com/full/1398610.jpg" alt="" srcset=""></div>
             <div class="swiper-slide"><img src="https://images4.alphacoders.com/935/thumb-1920-935756.jpg" alt="" srcset=""></div>
             <div class="swiper-slide"><img src="https://fondosmil.com/fondo/7532.jpg" alt="" srcset=""></div>
             <div class="swiper-slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnYCREsPpqZPGwbg2OE7hNSzTkFTcfMv0JKhs3LA916_zxreb_ht57OfrEmLW74MqV-10&usqp=CAU" alt="" srcset=""></div>
@@ -160,7 +160,10 @@
             <div class="swiper-slide"><img src="https://assets.adnradio.cl/2022/11/cartelera-NBA-partidos-s%C3%A1bado-925x470.jpg" alt="" srcset=""></div>
             <div class="swiper-slide"><img src="https://library.sportingnews.com/styles/twitter_card_120x120/s3/2022-08/M%C3%A9xico%20voley.jpg?itok=xBzC9rEV" alt="" srcset=""></div>
             <div class="swiper-slide"><img src="https://s.yimg.com/ny/api/res/1.2/WTRYKqHzF8NsSFvkQd5WRg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTY0MA--/https://media.zenfs.com/es/lanacion.com.ar/c805b280b760975f1d9cb9a2bfde1440" alt="" srcset=""></div>
-            <div class="swiper-slide"><img src="https://img.olympicchannel.com/images/image/private/t_s_w1340/t_s_16_9_g_auto/f_auto/primary/fai12dwup6punxyn77am" alt="" srcset=""></div>
+            <div class="swiper-slide"><img src="https://img.olympicchannel.com/images/image/private/t_s_w1340/t_s_16_9_g_auto/f_auto/primary/fai12dwup6punxyn77am" alt="" srcset=""></div>--> 
+            <div class="swiper-slide"><img src="{{asset('Frontend/img/prefecoInterprepas.jpg')}}" alt="" srcset=""></div>
+           
+
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
