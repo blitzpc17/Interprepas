@@ -285,21 +285,7 @@
       
     });
 
-    /*participantes*/
-
-    const swiperp = new Swiper('.swiper.participantes', {
-        direction: 'horizontal',
-        loop: true,
-        autoplay: {
-                    delay: 1500,
-                    disableOnInteraction: false,
-                    pauseOnMouseEnter: true
-            } ,
-            
-            slidesPerView: "auto",
-            centeredSlides: true,
-
-    });
+   
 
 
     let prepas;
@@ -326,6 +312,7 @@
             FillMedallero(res.medallero)
             FillBlog(res.noticias)
             FillEventosDeportivos(res.evDeportivos)
+            FillParticipantes(prepas)
 
         }
       });
@@ -447,6 +434,30 @@
 
     function FillEventosExamenes(data){
 
+    }
+
+    function FillParticipantes(data){
+      $('#cparticipantes').empty();
+      $.each(data, function (i, val) { 
+         const html = `<div class="swiper-slide participantes"><img src="{{asset('${val.Logo}')}}" /></div>`
+         $('#cparticipantes').append(html)
+      });
+
+       /*participantes*/
+
+    const swiperp = new Swiper('.swiper.participantes', {
+        direction: 'horizontal',
+        loop: true,
+        autoplay: {
+                    delay: 1500,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true
+            } ,
+            
+            slidesPerView: "auto",
+            centeredSlides: true,
+
+    });
     }
    
 

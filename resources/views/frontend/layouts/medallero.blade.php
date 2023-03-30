@@ -30,6 +30,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!--
                     <tr>
                         <td>1°</td>
                         <td>TEHUACÁN</td>
@@ -70,6 +71,7 @@
                         <td>0</td>
                         <td>1</td>
                     </tr>
+-->
                 </tbody>
             </table>
         </div>
@@ -77,7 +79,7 @@
 
 
     <div class="med-footer">
-        <span>Actualizado al 27 de marzo</span>
+        <span>Actualizado al {{date('d-m-Y')}}</span>
     </div>
 
 
