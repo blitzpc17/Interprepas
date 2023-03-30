@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use DB;
 
 use  App\Models\Sedes;
+use  App\Models\Evento;
 
 class EventosController extends Controller
 {
@@ -21,6 +22,19 @@ class EventosController extends Controller
         return view('admin.eventos', compact('categorias', 'sedes'));
     } 
 
+    public function listar(){
+        return DB::table('eventos as ev')
+                    ->join('categorias as cat', 'ev.CategoriaId','cat.Id')
+                    ->join('ramas as ram', 'cat.RamasId', 'ram.Id')
+                    ->join('tipos as tip', 'cat.TiposId', 'tip.Id')
+                    ->join('sedes as sed', 'ev.SedeId', 'sed.Id')
+                    ->select('ev.Id as EventoId', 'cat.Id as CategoriaId', 'cat.Nombre as NombreCategoria',
+                        'ram.Nombre as NombreRama', 'tip.Nombre as NombreTipo', 'sed.Id as SedeId', 'sed.Nombres as NombreSede',
+                        'ev.FechaHora', 'ev.SourceData as Data', DB::raw("concat(cat.Nombre, ' ', ram.Nombre) as CategoriaRama")
+                    )
+                    ->get();
+    }
+
     public function save(Request $r){
 
         $error = false;
@@ -30,11 +44,11 @@ class EventosController extends Controller
         try{
             if(isset($r->Id)){
 
-                $res = Categoria::where('Id', $r->Id)->update([
-                    'Nombre' => $r->Nombre,
-                    'TiposId' => $r->Tipo,
-                    'RamasId'  => $r->Rama,
-                    'Img' => $archivos
+                $res = Evento::where('Id', $r->Id)->update([
+                    'CategoriaId' => $r->Categoria,
+                    'FechaHora' => $r->Fecha,
+                    'SedeId'  => $r->Sede,
+                    'SourceData' => $r->Data
                 ]);
 
                 if($res == 1 ){
@@ -50,22 +64,25 @@ class EventosController extends Controller
                 }
 
             }else{
-                $res = Categoria::create([
-                    'Nombre' => $r->Nombre,
-                    'TiposId' => $r->Tipo,
-                    'RamasId'  => $r->Rama,
-                    'Img' => $archivos
+                $res = Evento::create([
+                    'CategoriaId' => $r->Categoria,
+                    'FechaHora' => $r->Fecha,
+                    'SedeId'  => $r->Sede,
+                    'SourceData' => $r->Data
                 ]);
 
                 $msj = "Registro guardado correctamente";
             }
 
-            $data =  DB::table('categorias as cat')
+            $data =   DB::table('eventos as ev')
+                        ->join('categorias as cat', 'ev.CategoriaId','cat.Id')
+                        ->join('ramas as ram', 'cat.RamasId', 'ram.Id')
                         ->join('tipos as tip', 'cat.TiposId', 'tip.Id')
-                        ->join('ramas as ram', 'cat.RamasId','ram.Id')
-                        ->select('cat.Id as CategoriaId', 'cat.Nombre as NombreCategoria',
-                                'tip.Id as TipoId', 'tip.Nombre as NombreTipo',
-                                'ram.Id as RamaId', 'ram.Nombre as NombraRama' )
+                        ->join('sedes as sed', 'ev.SedeId', 'sed.Id')
+                        ->select('ev.Id as EventoId', 'cat.Id as CategoriaId', 'cat.Nombre as NombreCategoria',
+                            'ram.Nombre as NombreRama', 'tip.Nombre as NombreTipo', 'sed.Id as SedeId', 'sed.Nombres as NombreSede',
+                            'ev.FechaHora', 'ev.SourceData as Data', DB::raw("concat(cat.Nombre, ' ', ram.Nombre) as CategoriaRama")
+                        )
                         ->get();
 
         }catch(Exception $ex){

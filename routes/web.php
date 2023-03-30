@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\PreparatoriasController;
 use App\Http\Controllers\Admin\ParticipantesController;
 use App\Http\Controllers\Admin\SedesController;
 use App\Http\Controllers\Admin\EventosController;
+use App\Http\Controllers\Admin\NoticiasController as AdminNoticiasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,7 @@ use App\Http\Controllers\Admin\EventosController;
 */
 Route::get('/', [HomePageController::class, 'index'])->name('f.home');
 
-Route::get('noticia', [NoticiasController::class, 'noticia'])->name('f.noticia');
+//Route::get('noticia', [NoticiasController::class, 'noticia'])->name('f.noticia');
 
 
 Route::prefix('panzers')->group(function () {
@@ -73,6 +74,9 @@ Route::prefix('panzers')->group(function () {
 
 
     /*noticias */
+    Route::get('noticias', [AdminNoticiasController::class, 'index'])->name('not.index');
+    Route::get('noticias/listar', [AdmninNoticiasController::class, 'listar'])->name('not.listar');
+    Route::post('noticias/save', [AdminNoticiasController::class, 'save'])->name('not.save');
 
 
 });

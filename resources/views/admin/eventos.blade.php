@@ -100,12 +100,12 @@
 
                         <div class="form-group">
                             <label>Fecha y Hora evento:</label>
-                            <input class="form-control" type="datetime-local" id="fecha" name="Fecha">
+                            <input class="form-control" type="datetime-local" id="fecha" name="Fecha" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="">Cedes</label>
-                            <select class="form-control" name="Cede" id="cede" required>
+                            <label for="">Sedes</label>
+                            <select class="form-control" name="Sede" id="sede" required>
                                 <option value="">Seleccione una opcion</option>
                                 @foreach ($sedes as $sed )
                                     <option value="{{$sed->Id}}">{{$sed->Nombres}}</option>
@@ -149,18 +149,7 @@
 
     $(document).ready(function () {
 
-        
-
-       
-        Listar();
-
-      /*  $('#img').on('change', function(e){
-            const img = URL.createObjectURL(e.target.files[0])
-            $('#visor').attr('src', img)
-
-        });*/
-
-
+        Listar();  
 
         $('#frm').on('submit', function(e){
             e.preventDefault();
@@ -202,14 +191,12 @@
     function ModificarRegistro(id){        
         $('.modal-title').text('Modificar registro')
         LimpiarControles()
-        const registro = registros.find(x=>x.CategoriaId == id)
-        $('#nombre').val(registro.NombreCategoria)
-        $('#tipo').val(registro.TipoId)
-        $('#rama').val(registro.RamaId)
-        $('#id').val(registro.CategoriaId) 
-        const url = "{{url('')}}/"+registro.Img;
-        console.log(url)
-        $('#visor').attr('src', url)
+        const registro = registros.find(x=>x.EventoId == id)
+        $('#categoria').val(registro.CategoriaId)
+        $('#fecha').val(registro.FechaHora)
+        $('#sede').val(registro.SedeId)
+        $('#id').val(registro.EventoId)       
+    
 
         $('#md-save').modal('toggle')
     }
@@ -233,9 +220,9 @@
         $.each(data, function (i, val) { 
              const html = `<tr>
                                         <td>${(i+1)}</td>
-                                        <td>${val.NombreCategoria}</td>
-                                        <td>${val.NombreTipo}</td>
-                                        <td>${val.NombreRama}</td>
+                                        <td>${val.CategoriaRama}</td>
+                                        <td>${val.NombreSede}</td>
+                                        <td>${val.FechaHora}</td>
                                         <td>
                                             <button onclick="ModificarRegistro(${val.CategoriaId})" class="btn btn-warning"><i class="fa fa-edit"></i></button>
                                         </td>
@@ -247,12 +234,11 @@
     }
 
     function LimpiarControles(){
-        $('#nombre').val(null)
-        $('#tipo').val(null)
-        $('#rama').val(null)
-        $('#id').val(null) 
-        $('#img').val(null)
-        $('#visor').attr('src', null)
+        $('#categoria').val(null)
+        $('#fecha').val(null)
+        $('#sede').val(null)
+        $('#id').val(null)       
+    
     }
 </script>
 
