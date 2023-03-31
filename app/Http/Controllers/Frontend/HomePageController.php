@@ -33,6 +33,8 @@ class HomePageController extends Controller
         ->selectraw("ev.Id, ev.FechaHora, ev.SourceData, cat.Id, cat.Img as CategoriaImagen,
                 tip.Id as TipoId,
                concat(cat.Nombre,' ',ram.Nombre) as Categoria,
+               cat.Nombre as SoloCategoria,
+               cat.Nombre as SoloCategoria,
                 sed.Nombres as Sede")
         ->get();
 

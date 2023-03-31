@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="{{asset('Frontend/css/medallero.css')}}">
 <link rel="stylesheet" href="{{asset('Frontend/css/diario.css')}}">
 <link rel="stylesheet" href="{{asset('Frontend/css/culturales.css')}}">
+<link rel="stylesheet" href="{{asset('Frontend/css/conocimiento.css')}}">
 <link rel="stylesheet" href="{{asset('Frontend/css/cintillo_participantes.css')}}">
 
 
@@ -191,6 +192,8 @@
 
         @include('frontend.layouts.culturales')
 
+        @include('frontend.layouts.conocimiento')
+
         </div>
 
         <div class="wd-35 sm-100 secciones lateral">
@@ -260,30 +263,7 @@
 
    
 
-     /*eventos culturales */
-
-     const swiperc = new Swiper('.swiper.culturales', {
-      // Optional parameters
-      direction: 'horizontal',
-      loop: true,
-
-
-      // Navigation arrows
-      navigation: {
-        nextEl: '.swiper-button-next.culturales',
-        prevEl: '.swiper-button-prev.culturales',
-      },
-
-      autoplay: {
-        delay: 2000,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true
-      },
-      slidesPerView:"auto",
-      centeredSlides: true,
-      disableOnInteraction: true,
-      
-    });
+   
 
    
 
@@ -307,12 +287,14 @@
         url: "{{route('f.listar')}}",
         dataType: "json",
         success: function (res) {
-            console.log(res)
             prepas = res.prepas;
+            FillParticipantes(prepas)
             FillMedallero(res.medallero)
             FillBlog(res.noticias)
             FillEventosDeportivos(res.evDeportivos)
-            FillParticipantes(prepas)
+            FillEventosCulturales(res.evCulturales);
+            FillEventosConocimiento(res.evConocimiento);
+            
 
         }
       });
@@ -404,35 +386,113 @@
 
        /*eventos deportivos */
 
-    const swiperd = new Swiper('.swiper.deportivo', {
-      // Optional parameters
-      direction: 'horizontal',
-      loop: true,
+      const swiperd = new Swiper('.swiper.deportivo', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
 
 
-      // Navigation arrows
-      navigation: {
-        nextEl: '.swiper-button-next.deportivo',
-        prevEl: '.swiper-button-prev.deportivo',
-      },
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next.deportivo',
+          prevEl: '.swiper-button-prev.deportivo',
+        },
 
-      autoplay: {
-        delay: 2000,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true
-      },
-      slidesPerView:"auto",
-      centeredSlides: true,
-      disableOnInteraction: true,
-    });
+        autoplay: {
+          delay: 2000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true
+        },
+        slidesPerView:"auto",
+        centeredSlides: true,
+        disableOnInteraction: true,
+      });
 
     }
 
     function FillEventosCulturales(data){
 
+        $('#culturales').empty();
+        $.each(data, function (i, val) { 
+            console.log(val)
+            const html = `<div class="culturales-item swiper-slide">
+                            <div class="contenido-cultural">
+                                <h3><span>${val.SoloCategoria}</span></h3>
+                                <img src="{{asset('${val.CategoriaImagen}')}}" alt="">                           
+                                <p style="font-weight:701">${moment(val.FechaHora).format('MMMM D, h:mm a')}</p>
+                                <span style="text-align: center; font-weight: 600; color: var(--primario);">${val.Sede}</span>                            
+                            </div>
+                        </div> `
+                        $('#culturales').append(html)
+        });
+
+          /*eventos culturales */
+
+          const swiperc = new Swiper('.swiper.culturales', {
+              // Optional parameters
+              direction: 'horizontal',
+              loop: true,
+
+
+              // Navigation arrows
+              navigation: {
+                nextEl: '.swiper-button-next.culturales',
+                prevEl: '.swiper-button-prev.culturales',
+              },
+
+              autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true
+              },
+              slidesPerView:"auto",
+              centeredSlides: true,
+              disableOnInteraction: true,
+              
+            });
+
     }
 
-    function FillEventosExamenes(data){
+    function FillEventosConocimiento(data){
+
+      $('#conocimiento').empty();
+        $.each(data, function (i, val) { 
+            const html = `<div class="conocimiento-item swiper-slide">
+                            <div class="contenido-conocimiento">
+                                <h3><span>${val.SoloCategoria}</span></h3>
+                                <img src="{{asset('${val.CategoriaImagen}')}}" alt="">                           
+                                <p style="font-weight:701">${moment(val.FechaHora).format('MMMM D, h:mm a')}</p>
+                                <span style="text-align: center; font-weight: 600; color: var(--primario);">${val.Sede}</span>                            
+                            </div>
+                        </div> `
+                        $('#conocimiento').append(html)
+        });
+
+          /*eventos culturales */
+
+          const swipercon = new Swiper('.swiper.conocimiento', {
+              // Optional parameters
+              direction: 'horizontal',
+              loop: true,
+
+
+              // Navigation arrows
+              navigation: {
+                nextEl: '.swiper-button-next.conocimiento',
+                prevEl: '.swiper-button-prev.conocimiento',
+              },
+
+              autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true
+              },
+              slidesPerView:"auto",
+              centeredSlides: true,
+              disableOnInteraction: true,
+              
+            });
+
 
     }
 

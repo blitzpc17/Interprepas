@@ -10,10 +10,10 @@
 
         <div class="swiper culturales">
 
-            <div class="swiper-wrapper">
+            <div id="culturales" class="swiper-wrapper">
 
-                @for($i=1; $i<=10; $i++)
-
+             
+<!--
                 <div class="culturales-item swiper-slide">
                     <div class="contenido-cultural">
                         <h3><span>Rondalla</span></h3>
@@ -24,7 +24,7 @@
                     </div>
                 </div> 
 
-                @endfor
+-->
 
             </div>
 
