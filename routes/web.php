@@ -27,6 +27,9 @@ use App\Http\Controllers\Admin\NoticiasController as AdminNoticiasController;
 Route::get('/', [HomePageController::class, 'index'])->name('f.home');
 Route::get('op/home/listar', [HomePageController::class, 'listarDataHome'])->name('f.listar');
 
+ /* categorias resultados */
+ Route::get('categorias/resultados', [NoticiasController::class, 'ApartadoCategoria'])->name('cat.resultados');
+
 //Route::get('noticia', [NoticiasController::class, 'noticia'])->name('f.noticia');
 
 
@@ -80,6 +83,9 @@ Route::prefix('panzers')->group(function () {
     Route::get('noticias', [AdminNoticiasController::class, 'index'])->name('not.index');
     Route::get('noticias/listar', [AdmninNoticiasController::class, 'listar'])->name('not.listar');
     Route::post('noticias/save', [AdminNoticiasController::class, 'save'])->name('not.save');
+
+
+   
 
 
 });
