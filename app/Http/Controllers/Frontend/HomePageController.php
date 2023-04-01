@@ -6,16 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Preparatoria;
+use App\Models\Categoria;
 
 use DB;
 
 class HomePageController extends Controller
 {
     public function index(Request $r){
-        return view('frontend.home');
 
-
-        
+        $categorias = Categoria::all();
+        return view('frontend.home', compact('categorias'));
     }
 
     public function listarDataHome(Request $r){

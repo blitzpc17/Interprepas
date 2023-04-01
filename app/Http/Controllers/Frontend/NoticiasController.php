@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Preparatoria;
+use App\Models\Categoria;
 
 use DB;
 
@@ -13,12 +14,8 @@ class NoticiasController extends Controller
 {
     public function noticia(Request $r){
 
-
-        
-
-
-
-        return view('frontend.noticia');
+        $categorias = Categoria::all();
+        return view('frontend.noticia', compact('categorias'));
     }
 
 
@@ -42,7 +39,8 @@ class NoticiasController extends Controller
         }
         
         $categoria = $r->cat;
-        return view('frontend.resultados', compact('categoria'));
+        $categorias = Categoria::all();
+        return view('frontend.resultados', compact('categoria', 'categorias'));
     }
 
 
